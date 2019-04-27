@@ -45,7 +45,6 @@ set nostartofline
 
 set nocursorcolumn
 set nocursorline
-set cursorline
 
 set encoding=utf-8
 set fileformats=unix,dos,mac
@@ -114,6 +113,8 @@ if has ("autocmd")
           \ if line("'\"") > 1 && line("'\"") <= line("$") |
           \	exe "normal! g`\"" |
           \ endif
+
+    autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
   augroup END
 else
