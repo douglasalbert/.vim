@@ -1,3 +1,5 @@
+set nocompatible
+
 "
 " plugins
 "
@@ -26,8 +28,6 @@ colorscheme solarized
 "
 " Global settings
 "
-set nocompatible
-filetype off
 filetype plugin indent on
 set noerrorbells
 set novisualbell
@@ -70,13 +70,15 @@ set notimeout ttimeout ttimeoutlen=200
 " Formatting options
 "
 set wrap
+set linebreak
 set textwidth=79
-set formatoptions=qrn1
+set formatoptions=qrn1j
 set colorcolumn=79
 set relativenumber
 
 " Highlight unwanted whitespace
 set listchars=tab:>.,trail:.,extends:\#,nbsp:.
+set list
 
 set autoindent
 set complete-=i
@@ -85,6 +87,7 @@ set smarttab
 
 set shiftwidth=4
 set softtabstop=4
+set tabstop=4
 set expandtab
 
 set switchbuf=usetab,newtab
@@ -99,13 +102,11 @@ set tags=./tags,tags;
 "
 if has ("autocmd")
 
-  filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
     au!
 
-    " For all text files set 'textwidth' to 78 characters.
+    " For all text files set 'textwidth' to 72 characters.
     autocmd FileType text setlocal textwidth=72
 
     " last known good cursor location
@@ -117,7 +118,6 @@ if has ("autocmd")
     autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
   augroup END
-else
 endif " has("autocmd")
 
 "
@@ -125,14 +125,13 @@ endif " has("autocmd")
 "
 
 let mapleader = ","
-let g:mapleader = ","
 
 " strip trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
-map Y y$
+nnoremap Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -146,8 +145,6 @@ nnoremap <Down> <C-w>j
 
 " Navigate tabs using hjkl
 nnoremap th  :tabprev<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
 nnoremap tl  :tabnext<CR>
 nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
