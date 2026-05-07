@@ -7,9 +7,8 @@ help:
 .PHONY: install
 install: ## Sets up symlink for vim and neovim.
 	ln -snf "$(HOME)/.vim/vimrc" "$(HOME)/.vimrc"
-	mkdir -p "$(XDG_CONFIG_HOME)"
-	ln -snf "$(HOME)/.vim" "$(XDG_CONFIG_HOME)/nvim"
-	ln -snf "$(HOME)/.vimrc" "$(XDG_CONFIG_HOME)/nvim/init.vim"
+	mkdir -p "$(XDG_CONFIG_HOME)/nvim"
+	ln -snf "$(HOME)/.vim/init.lua" "$(XDG_CONFIG_HOME)/nvim/init.lua"
 
 .PHONY: vim-plug
 vim-plug: ## Installs vim-plug

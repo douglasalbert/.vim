@@ -1,29 +1,19 @@
-set nocompatible
-
-"
-" plugins
-"
-call g:plug#begin()
-
+call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
+Plug 'nanotee/zoxide.vim'
+call plug#end()
 
-call g:plug#end()
+set nocompatible
 
 " airline config
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'term'
 
-" solarized settings
 syntax enable
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme solarized
-
 
 "
 " Global settings
